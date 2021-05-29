@@ -1,4 +1,4 @@
-<img src="http://localhost:8158/img/logo.png" />
+<img src="https://raw.githubusercontent.com/22XploiterCrew-Team/Tsayou-Shell-Backdoor/1.x/img/logo.png" />
 
 > No System Is Safe
 
@@ -22,6 +22,7 @@ Some of the features that have been added:
 - Donwloading the File
 
 Using the well-known css framework, Bootstrap version 4, so that the resulting display will adjust to your platform or more often it is called a responsive display.
+<img src="https://raw.githubusercontent.com/22XploiterCrew-Team/Tsayou-Shell-Backdoor/1.x/img/preview.jpg"/>
 
 ## Thank's To
 Thank you for the support given, we got references in making this backdoor from our friends, including:
